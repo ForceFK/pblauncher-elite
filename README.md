@@ -1,2 +1,2 @@
-# launcher-elite
+# PBLauncher Project Elite
 PBLauncher Project Elite
