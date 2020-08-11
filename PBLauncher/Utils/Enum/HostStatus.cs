@@ -6,21 +6,19 @@
  */
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace PBLauncher
+namespace PBLauncher.Utils.Enum
 {
-    public partial class MainForm : Form
+    public enum HostStatus 
     {
-        public MainForm()
-        {
-            InitializeComponent();
-        }
+        OFFLINE,
+        MAINTENANCE,
+        MAINTENANCEALERT,
+        ONLINE,
+        ONLINEALERT,
+        UNK
     }
 }
