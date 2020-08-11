@@ -1,7 +1,7 @@
 # PBLauncher Project Elite - Public Version
 > Not the current version of PBLauncher in use by Project Elite - Não é a versão atual do PBLauncher em uso pelo Project Elite
 
-# Projeto em desenvolvimento.
+# Projeto em desenvolvimento
 > Este projeto não foi finalizado, irá sofrer futuras alterações.
 
 # Configurações
