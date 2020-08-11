@@ -7,4 +7,4 @@
 # Configurações
 * No htdocs do seu site coloque a pasta 'launcher'.
 * Edite as configurações de abertura no arquivo 'settings.conf'.
-* Abra o projeto no visual studio, procure o arquivo 'Connect.cs' coloque o nome do seu project e o URL do 'settings.conf', compile, se tudo ocorreu sem erro, o launcher estará pronto.
+* Abra o projeto no visual studio, procure o arquivo 'Connect.cs' coloque o nome do seu project e o URL do 'settings.conf', compile, se tudo ocorrer sem erros, o launcher estará pronto para uso.
