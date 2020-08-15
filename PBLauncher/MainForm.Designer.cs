@@ -62,31 +62,33 @@
             // 
             // panel_top
             // 
+            this.panel_top.BackColor = System.Drawing.Color.Transparent;
             this.panel_top.Controls.Add(this.ConfigPBox);
             this.panel_top.Controls.Add(this.MinPBox);
             this.panel_top.Controls.Add(this.ExitPBox);
             this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_top.Location = new System.Drawing.Point(0, 0);
             this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(714, 30);
+            this.panel_top.Size = new System.Drawing.Size(714, 33);
             this.panel_top.TabIndex = 0;
             // 
             // ConfigPBox
             // 
             this.ConfigPBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ConfigPBox.Image = global::PBLauncher.Properties.Resources.config;
-            this.ConfigPBox.Location = new System.Drawing.Point(619, 3);
+            this.ConfigPBox.Location = new System.Drawing.Point(619, 4);
             this.ConfigPBox.Name = "ConfigPBox";
             this.ConfigPBox.Size = new System.Drawing.Size(25, 25);
             this.ConfigPBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ConfigPBox.TabIndex = 10;
             this.ConfigPBox.TabStop = false;
+            this.ConfigPBox.Click += new System.EventHandler(this.ConfigPBox_Click);
             // 
             // MinPBox
             // 
             this.MinPBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MinPBox.Image = global::PBLauncher.Properties.Resources.minim;
-            this.MinPBox.Location = new System.Drawing.Point(655, 3);
+            this.MinPBox.Location = new System.Drawing.Point(655, 4);
             this.MinPBox.Name = "MinPBox";
             this.MinPBox.Size = new System.Drawing.Size(25, 25);
             this.MinPBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -97,7 +99,7 @@
             // 
             this.ExitPBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ExitPBox.Image = global::PBLauncher.Properties.Resources.exit;
-            this.ExitPBox.Location = new System.Drawing.Point(685, 3);
+            this.ExitPBox.Location = new System.Drawing.Point(685, 4);
             this.ExitPBox.Name = "ExitPBox";
             this.ExitPBox.Size = new System.Drawing.Size(25, 25);
             this.ExitPBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -106,6 +108,7 @@
             // 
             // panel_end
             // 
+            this.panel_end.BackColor = System.Drawing.Color.Transparent;
             this.panel_end.Controls.Add(this.LDownload);
             this.panel_end.Controls.Add(this.Total_Bar);
             this.panel_end.Controls.Add(this.Arquivo_Bar);
@@ -126,6 +129,7 @@
             // 
             // LDownload
             // 
+            this.LDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LDownload.BackColor = System.Drawing.Color.Transparent;
             this.LDownload.ForeColor = System.Drawing.Color.White;
             this.LDownload.Location = new System.Drawing.Point(375, 31);
@@ -138,6 +142,7 @@
             // 
             // Total_Bar
             // 
+            this.Total_Bar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Total_Bar.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.Total_Bar.Location = new System.Drawing.Point(12, 83);
             this.Total_Bar.Name = "Total_Bar";
@@ -147,6 +152,7 @@
             // 
             // Arquivo_Bar
             // 
+            this.Arquivo_Bar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Arquivo_Bar.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.Arquivo_Bar.Location = new System.Drawing.Point(12, 48);
             this.Arquivo_Bar.Name = "Arquivo_Bar";
@@ -156,6 +162,7 @@
             // 
             // StartPBox
             // 
+            this.StartPBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.StartPBox.BackColor = System.Drawing.Color.Transparent;
             this.StartPBox.Image = global::PBLauncher.Properties.Resources.start;
             this.StartPBox.Location = new System.Drawing.Point(570, 33);
@@ -167,6 +174,7 @@
             // 
             // CheckPBox
             // 
+            this.CheckPBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CheckPBox.BackColor = System.Drawing.Color.Transparent;
             this.CheckPBox.Image = global::PBLauncher.Properties.Resources.check;
             this.CheckPBox.Location = new System.Drawing.Point(480, 33);
@@ -178,6 +186,7 @@
             // 
             // UpdatePBox
             // 
+            this.UpdatePBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdatePBox.BackColor = System.Drawing.Color.Transparent;
             this.UpdatePBox.Image = global::PBLauncher.Properties.Resources.update;
             this.UpdatePBox.Location = new System.Drawing.Point(570, 33);
@@ -189,6 +198,7 @@
             // 
             // LTotalFixo
             // 
+            this.LTotalFixo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LTotalFixo.AutoSize = true;
             this.LTotalFixo.BackColor = System.Drawing.Color.Transparent;
             this.LTotalFixo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -201,6 +211,7 @@
             // 
             // LAquivoFixo
             // 
+            this.LAquivoFixo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LAquivoFixo.AutoSize = true;
             this.LAquivoFixo.BackColor = System.Drawing.Color.Transparent;
             this.LAquivoFixo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,6 +236,7 @@
             // 
             // Total_BarFixo
             // 
+            this.Total_BarFixo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Total_BarFixo.BackColor = System.Drawing.Color.White;
             this.Total_BarFixo.Location = new System.Drawing.Point(12, 83);
             this.Total_BarFixo.Name = "Total_BarFixo";
@@ -234,6 +246,7 @@
             // 
             // Arquivo_BarFixo
             // 
+            this.Arquivo_BarFixo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Arquivo_BarFixo.BackColor = System.Drawing.Color.White;
             this.Arquivo_BarFixo.Location = new System.Drawing.Point(12, 48);
             this.Arquivo_BarFixo.Name = "Arquivo_BarFixo";
@@ -243,6 +256,8 @@
             // 
             // LArquivo
             // 
+            this.LArquivo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LArquivo.BackColor = System.Drawing.Color.Transparent;
             this.LArquivo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LArquivo.ForeColor = System.Drawing.Color.White;
@@ -258,11 +273,11 @@
             // 
             this.WEB_Announce.Dock = System.Windows.Forms.DockStyle.Fill;
             this.WEB_Announce.IsWebBrowserContextMenuEnabled = false;
-            this.WEB_Announce.Location = new System.Drawing.Point(0, 30);
+            this.WEB_Announce.Location = new System.Drawing.Point(0, 33);
             this.WEB_Announce.MinimumSize = new System.Drawing.Size(20, 20);
             this.WEB_Announce.Name = "WEB_Announce";
             this.WEB_Announce.ScrollBarsEnabled = false;
-            this.WEB_Announce.Size = new System.Drawing.Size(714, 431);
+            this.WEB_Announce.Size = new System.Drawing.Size(714, 428);
             this.WEB_Announce.TabIndex = 2;
             this.WEB_Announce.TabStop = false;
             // 
@@ -271,6 +286,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(714, 565);
             this.Controls.Add(this.WEB_Announce);
             this.Controls.Add(this.panel_end);
@@ -304,7 +320,6 @@
 
         private System.Windows.Forms.Panel panel_top;
         private System.Windows.Forms.Panel panel_end;
-        private System.Windows.Forms.WebBrowser WEB_Announce;
         private System.Windows.Forms.PictureBox ConfigPBox;
         private System.Windows.Forms.PictureBox MinPBox;
         private System.Windows.Forms.PictureBox ExitPBox;
@@ -320,5 +335,6 @@
         private System.Windows.Forms.PictureBox Total_BarFixo;
         private System.Windows.Forms.PictureBox Arquivo_BarFixo;
         private System.Windows.Forms.Label LArquivo;
+        private System.Windows.Forms.WebBrowser WEB_Announce;
     }
 }
