@@ -2,7 +2,7 @@
  * Criado por ForceFK
  * https://github.com/ForceFK
  * Force&Kuraio Dev
- * Última modificação: 11/08/2020
+ * Última modificação: 14/08/2020
  */
 using System;
 using System.Collections.Generic;
@@ -21,6 +21,11 @@ namespace PBLauncher
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

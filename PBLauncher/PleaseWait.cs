@@ -2,7 +2,7 @@
  * Criado por ForceFK
  * https://github.com/ForceFK
  * Force&Kuraio Dev
- * Última modificação: 11/08/2020
+ * Última modificação: 14/08/2020
  */
 using Core;
 using Ionic.Zip;
@@ -36,7 +36,7 @@ namespace PBLauncher
 
         private async void PleaseWait_Load(object sender, EventArgs e)
         {
-            GetBackgroundImage();
+            GetBackgroundImage(); //Remover caso queira desativar a troca do background no carregamento
             lb_loading.Text = Config.LOADING;
             Logger.Log("");
             Logger.Log("[<>] PBLauncher [" + Connect.GameName + "] iniciado.");
@@ -195,15 +195,9 @@ namespace PBLauncher
         private void GetBackgroundImage()
         {
             Random r = new Random();
-            try
-            {
-                if (GetBackground.GetImage())
-                    BackgroundImage = GetBackground.list[r.Next(0, GetBackground.list.Count + 1)];
-            }
-            catch
-            {
-                BackgroundImage = Resources._0;
-            }
+            if (GetBackground.GetImage())
+                BackgroundImage = GetBackground.list[r.Next(0, GetBackground.list.Count + 1)];
+
         }
     }
 }
