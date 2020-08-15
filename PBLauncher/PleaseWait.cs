@@ -183,7 +183,10 @@ namespace PBLauncher
 
         private void OpenMain()
         {
-            Form f = new MainForm();
+            Form f = new MainForm()
+            {
+                BackgroundImage = Core.Properties.Resources.bg
+            };
             Hide();
             f.Closed += (s, args) => Close();
             f.Show();
