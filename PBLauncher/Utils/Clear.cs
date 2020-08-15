@@ -22,6 +22,12 @@ namespace PBLauncher.Utils
                     Directory.Delete(string.Concat(Application.StartupPath, "\\_LauncherPatchFiles"), true);
                     await Task.Delay(20);
                 }
+                if (Directory.Exists(string.Concat(Application.StartupPath, "\\_DownloadPatchFiles")))
+                {
+                    Logger.Log("[!] Deletando pasta temporária de download.");
+                    Directory.Delete(string.Concat(Application.StartupPath, "\\_DownloadPatchFiles"), true);
+                    await Task.Delay(20);
+                }
                 string[] _files = Directory.GetFiles(Application.StartupPath, "*.PendingOverwrite", SearchOption.AllDirectories);
                 foreach (string _file in _files)
                 {
