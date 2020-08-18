@@ -41,12 +41,12 @@ EX: Estrutura da PASTA para atualizar a '\config\' do jogo e 2 packs aleatório!
 
 patch_1.zip 
 	├──\config.zpt 
-  │     *dentro deve estar 'version=1'
+	│     *dentro deve estar 'version=1'
 	├──\Config
-  │     └──\lwsi_En.sif
-  └──\Pack
-  	    ├──\pack_da_aug.i3Pack
-        └──\segundo_pack.i3pack
+	│     └──\lwsi_En.sif
+	└──\Pack
+	      ├──\pack_da_aug.i3Pack
+	      └──\segundo_pack.i3pack
 
 
 IMPORTANTE:
