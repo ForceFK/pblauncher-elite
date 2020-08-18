@@ -17,6 +17,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,6 +29,8 @@ namespace PBLauncher
         private bool Updat, Verif;
 
         public Point NewPoint;
+        private int AVersion;
+        private readonly WebClient GameUpdate = new WebClient();
 
         public MainForm()
         {
@@ -212,8 +215,71 @@ namespace PBLauncher
 
         private void UpdatePBox_Click(object sender, EventArgs e)
         {
-
+            Buttons_Enable(false, false, false);
+            Updat = true;
+            UpdatePBox.Image = Resources.update_click;
+            GameUpdate.DownloadFileCompleted += GameUpdate_DownloadFileCompleted;
+            GameUpdate.DownloadProgressChanged += GameUpdate_DownloadProgressChanged;
+            LTitulo.Text = Config.GET_UPDATE_INFO;
+            LTitulo.Refresh();
+            StartUpdate();
         }
+
+        private void GameUpdate_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            Bar1SetProgress(e.BytesReceived, e.TotalBytesToReceive); 
+            LDownload.Text = string.Format("{0}/{1} MB", (e.BytesReceived / 1024.0 / 1024.0).ToString("0.00"), (e.TotalBytesToReceive / 1024.0 / 1024.0).ToString("0.00"));
+        }
+
+        private void GameUpdate_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                LTitulo.Text = Config.EXTRACT_FILE_UPDATE;
+                Total_Bar.Width = 0;
+                LDownload.Visible = false;
+                string startupPath = Application.StartupPath;
+                object[] actualVersion = new object[] { Application.StartupPath, "\\_DownloadPatchFiles\\patch_", AVersion + 1, ".zip" };
+                Unzip(startupPath, string.Concat(actualVersion));
+                Total_Bar.Width = Total_BarFixo.Width;
+                EscreverVersion(AVersion + 1);
+                StartUpdate();
+            }
+        }
+
+        private void StartUpdate()
+        {
+            AVersion = LerVersion();
+            int LVersion = Connect._version;
+            int newV = AVersion + 1;
+            if (LVersion != AVersion)
+            {
+                Arquivo_Bar.Width = 0;
+                LArquivo.Text = string.Concat("Atualização_", newV, ".zip");
+                LArquivo.Visible = true;
+                LArquivo.Refresh();
+                Logger.Log("Iniciando atualização da cliente.");
+                Logger.Log("Baixando " + LArquivo.Text);
+                Bar2SetProgress(AVersion, LVersion);
+                Directory.CreateDirectory(string.Concat(Application.StartupPath, "\\_DownloadPatchFiles"));
+                try
+                {
+                    Uri uri = new Uri(Connect._upURL + "patch_" + newV + ".zip");
+                    object[] startupPath = new object[] { Application.StartupPath, "\\_DownloadPatchFiles\\patch_", newV, ".zip" };
+                    LDownload.Visible = true;
+                    GameUpdate.DownloadFileAsync(uri, string.Concat(startupPath));
+                }
+                catch (Exception arg)
+                {
+                    Logger.Log("O arquivo [" + newV + "] não foi encontrado no servidor. \n[" + arg.Message + "]");
+                    MessageBox.Show(string.Format(Config.DOWNLOAD_FILE_ERROR, newV), Connect.GameName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Close();
+                }
+            }
+            else
+                CheckUpdate(0);
+        }
+
         private int LerVersion()
         {
             IniFile fileini = new IniFile(Application.StartupPath + "\\config.zpt");

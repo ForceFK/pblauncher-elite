@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PleaseWait));
             this.panel_label = new System.Windows.Forms.Panel();
             this.lb_loading = new System.Windows.Forms.Label();
             this.panel_label.SuspendLayout();
@@ -65,6 +66,7 @@
             this.ClientSize = new System.Drawing.Size(419, 148);
             this.Controls.Add(this.panel_label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PleaseWait";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Please Wait";

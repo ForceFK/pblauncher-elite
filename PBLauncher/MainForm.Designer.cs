@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel_top = new System.Windows.Forms.Panel();
             this.ConfigPBox = new System.Windows.Forms.PictureBox();
             this.MinPBox = new System.Windows.Forms.PictureBox();
             this.ExitPBox = new System.Windows.Forms.PictureBox();
             this.panel_end = new System.Windows.Forms.Panel();
-            this.LDownload = new System.Windows.Forms.Label();
-            this.Total_Bar = new System.Windows.Forms.PictureBox();
-            this.Arquivo_Bar = new System.Windows.Forms.PictureBox();
             this.StartPBox = new System.Windows.Forms.PictureBox();
             this.CheckPBox = new System.Windows.Forms.PictureBox();
             this.UpdatePBox = new System.Windows.Forms.PictureBox();
+            this.LDownload = new System.Windows.Forms.Label();
+            this.Total_Bar = new System.Windows.Forms.PictureBox();
+            this.Arquivo_Bar = new System.Windows.Forms.PictureBox();
             this.LTotalFixo = new System.Windows.Forms.Label();
             this.LAquivoFixo = new System.Windows.Forms.Label();
             this.LTitulo = new System.Windows.Forms.Label();
@@ -51,11 +52,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.MinPBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ExitPBox)).BeginInit();
             this.panel_end.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Total_Bar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Arquivo_Bar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StartPBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CheckPBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpdatePBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Total_Bar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Arquivo_Bar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Total_BarFixo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Arquivo_BarFixo)).BeginInit();
             this.SuspendLayout();
@@ -141,45 +142,6 @@
             this.panel_end.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
             this.panel_end.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
             // 
-            // LDownload
-            // 
-            this.LDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.LDownload.BackColor = System.Drawing.Color.Transparent;
-            this.LDownload.ForeColor = System.Drawing.Color.White;
-            this.LDownload.Location = new System.Drawing.Point(375, 31);
-            this.LDownload.Name = "LDownload";
-            this.LDownload.Size = new System.Drawing.Size(102, 15);
-            this.LDownload.TabIndex = 28;
-            this.LDownload.Text = "0/0 MB";
-            this.LDownload.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.LDownload.Visible = false;
-            this.LDownload.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
-            this.LDownload.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
-            // 
-            // Total_Bar
-            // 
-            this.Total_Bar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Total_Bar.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.Total_Bar.Location = new System.Drawing.Point(12, 83);
-            this.Total_Bar.Name = "Total_Bar";
-            this.Total_Bar.Size = new System.Drawing.Size(463, 10);
-            this.Total_Bar.TabIndex = 25;
-            this.Total_Bar.TabStop = false;
-            this.Total_Bar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
-            this.Total_Bar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
-            // 
-            // Arquivo_Bar
-            // 
-            this.Arquivo_Bar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Arquivo_Bar.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.Arquivo_Bar.Location = new System.Drawing.Point(12, 48);
-            this.Arquivo_Bar.Name = "Arquivo_Bar";
-            this.Arquivo_Bar.Size = new System.Drawing.Size(463, 10);
-            this.Arquivo_Bar.TabIndex = 24;
-            this.Arquivo_Bar.TabStop = false;
-            this.Arquivo_Bar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
-            this.Arquivo_Bar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
-            // 
             // StartPBox
             // 
             this.StartPBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -227,6 +189,45 @@
             this.UpdatePBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdatePBox_MouseDown);
             this.UpdatePBox.MouseLeave += new System.EventHandler(this.UpdatePBox_MouseLeave);
             this.UpdatePBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdatePBox_MouseMove);
+            // 
+            // LDownload
+            // 
+            this.LDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LDownload.BackColor = System.Drawing.Color.Transparent;
+            this.LDownload.ForeColor = System.Drawing.Color.White;
+            this.LDownload.Location = new System.Drawing.Point(375, 31);
+            this.LDownload.Name = "LDownload";
+            this.LDownload.Size = new System.Drawing.Size(102, 15);
+            this.LDownload.TabIndex = 28;
+            this.LDownload.Text = "0/0 MB";
+            this.LDownload.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.LDownload.Visible = false;
+            this.LDownload.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
+            this.LDownload.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
+            // 
+            // Total_Bar
+            // 
+            this.Total_Bar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Total_Bar.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.Total_Bar.Location = new System.Drawing.Point(12, 83);
+            this.Total_Bar.Name = "Total_Bar";
+            this.Total_Bar.Size = new System.Drawing.Size(463, 10);
+            this.Total_Bar.TabIndex = 25;
+            this.Total_Bar.TabStop = false;
+            this.Total_Bar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
+            this.Total_Bar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
+            // 
+            // Arquivo_Bar
+            // 
+            this.Arquivo_Bar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Arquivo_Bar.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.Arquivo_Bar.Location = new System.Drawing.Point(12, 48);
+            this.Arquivo_Bar.Name = "Arquivo_Bar";
+            this.Arquivo_Bar.Size = new System.Drawing.Size(463, 10);
+            this.Arquivo_Bar.TabIndex = 24;
+            this.Arquivo_Bar.TabStop = false;
+            this.Arquivo_Bar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
+            this.Arquivo_Bar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
             // 
             // LTotalFixo
             // 
@@ -334,6 +335,7 @@
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -345,11 +347,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.ExitPBox)).EndInit();
             this.panel_end.ResumeLayout(false);
             this.panel_end.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Total_Bar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Arquivo_Bar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StartPBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CheckPBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpdatePBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Total_Bar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Arquivo_Bar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Total_BarFixo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Arquivo_BarFixo)).EndInit();
             this.ResumeLayout(false);
