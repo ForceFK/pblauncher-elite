@@ -100,7 +100,7 @@ namespace PBLauncher
                         Process.Start(string.Concat(Application.StartupPath, "\\xigncode3_loader.exe"));
                         await Task.Delay(60);
                     }
-                    Process.Start(string.Concat(Application.StartupPath, "\\PointBlank.exe"), Param.key_dll);
+                    Process.Start(string.Concat(Application.StartupPath, "\\PointBlank.exe"), Connect._keyHost ? Connect._launcherKey.ToString() : Param.key_dll);
                     Hide();
                 }
                 catch (Exception arg)
