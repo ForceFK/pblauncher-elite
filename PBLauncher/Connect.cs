@@ -78,7 +78,7 @@ namespace PBLauncher
                                 case "updateurl":
                                     _upURL = Get.Conf(line, id);
                                     break;
-                                case "clienteversion":
+                                case "clientversion":
                                     _version = int.Parse(Get.Conf(line, id));
                                     break;
                                 case "keyhost":
@@ -129,7 +129,7 @@ namespace PBLauncher
                             string id = line.Split('=')[0];
                             switch (id)
                             {
-                                case "clienteversion":
+                                case "clientversion":
                                     _version = int.Parse(Get.Conf(line, id));
                                     return _version;
                                 
