@@ -4,6 +4,12 @@
 # Projeto em desenvolvimento
 > Este projeto não está finalizado, irá sofrer futuras alterações.
 
+# Recursos
+* Sistema de atualização dos arquivos do jogo
+* Inicialização do jogo
+* Sistema de mensagem personalizada para manutenções ou alertas de aberturas
+* LauncherKey via host
+
 # Configurações
 * No htdocs do seu site coloque a pasta 'launcher'.
 * Edite as configurações de abertura no arquivo 'settings.conf'.
