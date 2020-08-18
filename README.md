@@ -23,7 +23,36 @@
 [Notice / Alerta]
 Escreva qualquer texto no arquivo que deseje anunciar aos players.
 Mude um status que possua '+ alerta'
-* Caso o alerta estiver vazio o status sera ajustado automaticamente e nada será exibido
+*Caso o alerta estiver vazio o status vai ser ajustado automaticamente e nada será exibido.
 
 O Alerta irá aparecer cada vez que o player abrir o launcher até o status voltar a ser 3.
+
+
+[Updates]
+Monte o update conforme ficará na raiz do jogo e zipe com o Windows Explorer em .zip (obrigatório)
+com o seguinte nome "patch_VERSÃO DA ATT", exemplo:
+Atualização 1 o nome do arquivo será "patch_1.zip" e na config.zpt coloque 1 também.
+Coloque a config.zpt dentro da patch_1.zip, ela deve estar sem pastas, pois ela ficará na raiz do jogo.
+Após isso para liberar a atualização coloque 1 no settings.conf em 'clientversion'
+
+
+EX: Estrutura da PASTA para atualizar a '\config\' do jogo e 2 packs aleatório!
+
+
+patch_1.zip 
+	├──\config.zpt 
+  │     *dentro deve estar 'version=1'
+	├──\Config
+  │     └──\lwsi_En.sif
+  └──\Pack
+  	    ├──\pack_da_aug.i3Pack
+        └──\segundo_pack.i3pack
+
+
+IMPORTANTE:
+NUNCA VOLTE uma versão, tipo 10 voltar para 9, isso resetará a ordem e causar erros!
+NÃO altere a versão do 'clientversion' sem ter o arquivo com a versão também!
+NUNCA esqueça da config.zpt ou erre a versão, causará loop de atualização infinita.
+Siga a contagem em ordem (1, 2, 3, 4...) 
+
 ```
