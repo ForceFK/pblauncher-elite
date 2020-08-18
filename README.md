@@ -32,7 +32,7 @@ O Alerta irá aparecer cada vez que o player abrir o launcher até o status volt
 Monte o update conforme ficará na raiz do jogo e zipe com o Windows Explorer em .zip (obrigatório)
 com o seguinte nome "patch_VERSÃO DA ATT", exemplo:
 Atualização 1 o nome do arquivo será "patch_1.zip" e na config.zpt coloque 1 também.
-Coloque a config.zpt dentro da patch_1.zip, ela deve estar sem pastas, pois ela ficará na raiz do jogo.
+Coloque a config.zpt dentro da patch_1.zip, ela deve estar sem pastas, pois ela ficará na raiz.
 Após isso para liberar a atualização coloque 1 no settings.conf em 'clientversion'
 
 
