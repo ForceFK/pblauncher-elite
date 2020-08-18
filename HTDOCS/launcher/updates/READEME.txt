@@ -1,0 +1,7 @@
+Mude a versão para +1 a cada update lançado
+patch_1.zip é uma atualização exemplo
+Use apenas arquivos compactos em .zip
+
+
+Force >> Project Elite >> Ex-Staff
+https://github.com/ForceFK/pblauncher-elite/
