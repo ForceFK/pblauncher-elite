@@ -6,7 +6,7 @@
 * Inicialização do jogo com suporte a o XCLoader
 * Sistema de mensagem personalizada para manutenções ou alertas de aberturas
 * LauncherKey via host
-* Configuração do launcher simples e facil
+* Configuração do launcher simples e fácil, tudo em um arquivo
 
 # Configurações
 * No htdocs do seu site coloque a pasta 'launcher'.
