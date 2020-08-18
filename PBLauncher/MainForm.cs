@@ -242,7 +242,6 @@ namespace PBLauncher
                 object[] actualVersion = new object[] { Application.StartupPath, "\\_DownloadPatchFiles\\patch_", AVersion + 1, ".zip" };
                 Unzip(startupPath, string.Concat(actualVersion));
                 Total_Bar.Width = Total_BarFixo.Width;
-                EscreverVersion(AVersion + 1);
                 StartUpdate();
             }
         }
@@ -284,12 +283,6 @@ namespace PBLauncher
         {
             IniFile fileini = new IniFile(Application.StartupPath + "\\config.zpt");
             return fileini.IniReadInt("UPDATE", "version");
-        }
-
-        private void EscreverVersion(int version)
-        {
-            IniFile fileini = new IniFile(Application.StartupPath + "\\config.zpt");
-            fileini.IniWriteInt("UPDATE", "version", version);
         }
         #endregion
 
