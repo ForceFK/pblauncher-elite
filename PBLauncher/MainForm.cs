@@ -172,7 +172,7 @@ namespace PBLauncher
                 Logger.Log("[>!] Não tem atuaização disponível. [RECEIVE_COUNT_NULL]");
                 MessageBox.Show(Config.GET_UPDATE_ERROR, "[RECEIVE_NULL] ~ " + Connect.GameName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            int AVersion = LerVersion();
+            AVersion = LerVersion();
             Arquivo_Bar.Width = Arquivo_BarFixo.Width;
             Total_Bar.Width = Total_BarFixo.Width;
             LArquivo.Visible = false;
@@ -192,13 +192,13 @@ namespace PBLauncher
             else if (LVersion == AVersion)
             {
                 Logger.Log("A cliente está atualizada.");
-                    Logger.Log("Versão: " + AVersion + "/" + LVersion);
-                    LArquivo.Visible = false;
-                    LTitulo.Text = Config.GAME_IS_UPDATE;
-                    Buttons_Enable(true, true, false);
-                    Buttons_Visible(true, true, false);
-                    CheckPBox.Image = Resources.check;
-                    StartPBox.Image = Resources.start;
+                Logger.Log("Versão: " + AVersion + "/" + LVersion);
+                LArquivo.Visible = false;
+                LTitulo.Text = Config.GAME_IS_UPDATE;
+                Buttons_Enable(true, true, false);
+                Buttons_Visible(true, true, false);
+                CheckPBox.Image = Resources.check;
+                StartPBox.Image = Resources.start;
             }
             else
             {
@@ -209,6 +209,7 @@ namespace PBLauncher
                 MessageBox.Show(Config.LARGER_VERSION, Connect.GameName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 File.Delete(string.Concat(Application.StartupPath, "\\config.zpt"));
                 await Task.Delay(50);
+                EscreverVersion(0);
                 CheckUpdate(0);
             }
         }
@@ -221,7 +222,6 @@ namespace PBLauncher
             GameUpdate.DownloadFileCompleted += GameUpdate_DownloadFileCompleted;
             GameUpdate.DownloadProgressChanged += GameUpdate_DownloadProgressChanged;
             LTitulo.Text = Config.GET_UPDATE_INFO;
-            LTitulo.Refresh();
             StartUpdate();
         }
 
@@ -235,9 +235,9 @@ namespace PBLauncher
         {
             if (e.Error == null)
             {
+                LDownload.Visible = false;
                 LTitulo.Text = Config.EXTRACT_FILE_UPDATE;
                 Total_Bar.Width = 0;
-                LDownload.Visible = false;
                 string startupPath = Application.StartupPath;
                 object[] actualVersion = new object[] { Application.StartupPath, "\\_DownloadPatchFiles\\patch_", AVersion + 1, ".zip" };
                 Unzip(startupPath, string.Concat(actualVersion));
@@ -250,16 +250,15 @@ namespace PBLauncher
         {
             AVersion = LerVersion();
             int LVersion = Connect._version;
-            int newV = AVersion + 1;
             if (LVersion != AVersion)
             {
+                int newV = AVersion + 1;
                 Arquivo_Bar.Width = 0;
                 LArquivo.Text = string.Concat("Atualização_", newV, ".zip");
                 LArquivo.Visible = true;
-                LArquivo.Refresh();
                 Logger.Log("Iniciando atualização da cliente.");
                 Logger.Log("Baixando " + LArquivo.Text);
-                Bar2SetProgress(AVersion, LVersion);
+                Bar2SetProgress(newV, LVersion);
                 Directory.CreateDirectory(string.Concat(Application.StartupPath, "\\_DownloadPatchFiles"));
                 try
                 {
@@ -284,6 +283,13 @@ namespace PBLauncher
             IniFile fileini = new IniFile(Application.StartupPath + "\\config.zpt");
             return fileini.IniReadInt("UPDATE", "version");
         }
+
+        private void EscreverVersion(int version)
+        {
+            IniFile fileini = new IniFile(Application.StartupPath + "\\config.zpt");
+            fileini.IniWriteInt("UPDATE", "version", version);
+        }
+
         #endregion
 
         #region Image buttons
@@ -451,8 +457,8 @@ namespace PBLauncher
                         if (!zipEntry.IsDirectory)
                         {
                             LArquivo.Text = fileName;
-                            Update();
-                            Refresh();
+                            LArquivo.Update();
+                            Arquivo_Bar.Update();
                             zipEntry.Extract(TargetDir, ExtractExistingFileAction.OverwriteSilently);
                         }
                         else
@@ -474,10 +480,11 @@ namespace PBLauncher
         private void Unzip_ExtractProgressChanged(object sender, ExtractProgressEventArgs e)
         {
             if (e.TotalBytesToTransfer != 0)
-                    Bar1SetProgress(e.BytesTransferred, e.TotalBytesToTransfer);
-                Arquivo_Bar.Refresh();
+            {
+                Bar1SetProgress(e.BytesTransferred, e.TotalBytesToTransfer);
                 Arquivo_Bar.Update();
-           
+            }
+
         }
 
         public void Bar1SetProgress(long received, long maximum) => Arquivo_Bar.Width = (int)(received * Arquivo_BarFixo.Width / maximum);

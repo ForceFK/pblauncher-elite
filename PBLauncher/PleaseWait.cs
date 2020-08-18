@@ -94,8 +94,10 @@ namespace PBLauncher
                     Close();
                     break;
                 case HostStatus.MAINTENANCEALERT:
+                    if (string.IsNullOrEmpty(Connect._message))
+                        goto case HostStatus.MAINTENANCE;
                     Logger.Log("[<<] O jogo está em manutenção no momento");
-                    MessageBox.Show(Connect._message, "MAINTENANCE - " + Connect.GameName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Connect._message, "MAINTENANCE - " + Connect.GameName, MessageBoxButtons.OK, MessageBoxIcon.Warning); ;
                     Close();
                     break;
                 case HostStatus.ONLINE:
