@@ -28,6 +28,9 @@ namespace PBLauncher
         private static readonly string HostURL = "https://forum.projectelite.net/launcher/settings.conf";
         public static string GameName = "Project Elite - Public";
 
+
+
+        #region Modelo e processamento
         public static HostStatus _state = HostStatus.UNK;
         public static string _launcherVer, _message, _webURL, _upURL, _userList, _fileURL;
         public static int _version;
@@ -109,6 +112,39 @@ namespace PBLauncher
             }
             return _state;
         }
+
+        public static async Task<long> GetVersionUP()
+        {
+            await Task.Delay(5);
+            try
+            {
+                using (WebClient wc = new WebClient() { Encoding = Encoding.UTF8 })
+                {
+                    string[] all = wc.DownloadString(HostURL).Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                    Dictionary<string, object> config = new Dictionary<string, object>();
+                    foreach (string line in all)
+                    {
+                        if (line.Contains("="))
+                        {
+                            string id = line.Split('=')[0];
+                            switch (id)
+                            {
+                                case "clienteversion":
+                                    _version = int.Parse(Get.Conf(line, id));
+                                    return _version;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                _version = -1;
+            }
+            return _version;
+        }
+        #endregion
 
     }
 }

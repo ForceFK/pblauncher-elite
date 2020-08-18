@@ -71,6 +71,8 @@
             this.panel_top.Name = "panel_top";
             this.panel_top.Size = new System.Drawing.Size(714, 33);
             this.panel_top.TabIndex = 0;
+            this.panel_top.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
+            this.panel_top.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
             // 
             // ConfigPBox
             // 
@@ -83,6 +85,8 @@
             this.ConfigPBox.TabIndex = 10;
             this.ConfigPBox.TabStop = false;
             this.ConfigPBox.Click += new System.EventHandler(this.ConfigPBox_Click);
+            this.ConfigPBox.MouseLeave += new System.EventHandler(this.ConfigPBox_MouseLeave);
+            this.ConfigPBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ConfigPBox_MouseMove);
             // 
             // MinPBox
             // 
@@ -94,6 +98,10 @@
             this.MinPBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MinPBox.TabIndex = 9;
             this.MinPBox.TabStop = false;
+            this.MinPBox.Click += new System.EventHandler(this.MinPBox_Click);
+            this.MinPBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MinPBox_MouseDown);
+            this.MinPBox.MouseLeave += new System.EventHandler(this.MinPBox_MouseLeave);
+            this.MinPBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MinPBox_MouseMove);
             // 
             // ExitPBox
             // 
@@ -105,16 +113,20 @@
             this.ExitPBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ExitPBox.TabIndex = 8;
             this.ExitPBox.TabStop = false;
+            this.ExitPBox.Click += new System.EventHandler(this.ExitPBox_Click);
+            this.ExitPBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ExitPBox_MouseDown);
+            this.ExitPBox.MouseLeave += new System.EventHandler(this.ExitPBox_MouseLeave);
+            this.ExitPBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ExitPBox_MouseMove);
             // 
             // panel_end
             // 
             this.panel_end.BackColor = System.Drawing.Color.Transparent;
-            this.panel_end.Controls.Add(this.LDownload);
-            this.panel_end.Controls.Add(this.Total_Bar);
-            this.panel_end.Controls.Add(this.Arquivo_Bar);
             this.panel_end.Controls.Add(this.StartPBox);
             this.panel_end.Controls.Add(this.CheckPBox);
             this.panel_end.Controls.Add(this.UpdatePBox);
+            this.panel_end.Controls.Add(this.LDownload);
+            this.panel_end.Controls.Add(this.Total_Bar);
+            this.panel_end.Controls.Add(this.Arquivo_Bar);
             this.panel_end.Controls.Add(this.LTotalFixo);
             this.panel_end.Controls.Add(this.LAquivoFixo);
             this.panel_end.Controls.Add(this.LTitulo);
@@ -126,6 +138,8 @@
             this.panel_end.Name = "panel_end";
             this.panel_end.Size = new System.Drawing.Size(714, 104);
             this.panel_end.TabIndex = 1;
+            this.panel_end.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
+            this.panel_end.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
             // 
             // LDownload
             // 
@@ -139,6 +153,8 @@
             this.LDownload.Text = "0/0 MB";
             this.LDownload.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.LDownload.Visible = false;
+            this.LDownload.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
+            this.LDownload.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
             // 
             // Total_Bar
             // 
@@ -149,6 +165,8 @@
             this.Total_Bar.Size = new System.Drawing.Size(463, 10);
             this.Total_Bar.TabIndex = 25;
             this.Total_Bar.TabStop = false;
+            this.Total_Bar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
+            this.Total_Bar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
             // 
             // Arquivo_Bar
             // 
@@ -159,6 +177,8 @@
             this.Arquivo_Bar.Size = new System.Drawing.Size(463, 10);
             this.Arquivo_Bar.TabIndex = 24;
             this.Arquivo_Bar.TabStop = false;
+            this.Arquivo_Bar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
+            this.Arquivo_Bar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
             // 
             // StartPBox
             // 
@@ -171,6 +191,10 @@
             this.StartPBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.StartPBox.TabIndex = 23;
             this.StartPBox.TabStop = false;
+            this.StartPBox.Click += new System.EventHandler(this.StartPBox_Click);
+            this.StartPBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StartPBox_MouseDown);
+            this.StartPBox.MouseLeave += new System.EventHandler(this.StartPBox_MouseLeave);
+            this.StartPBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.StartPBox_MouseMove);
             // 
             // CheckPBox
             // 
@@ -183,6 +207,10 @@
             this.CheckPBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.CheckPBox.TabIndex = 22;
             this.CheckPBox.TabStop = false;
+            this.CheckPBox.Click += new System.EventHandler(this.CheckPBox_Click);
+            this.CheckPBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CheckPBox_MouseDown);
+            this.CheckPBox.MouseLeave += new System.EventHandler(this.CheckPBox_MouseLeave);
+            this.CheckPBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CheckPBox_MouseMove);
             // 
             // UpdatePBox
             // 
@@ -195,6 +223,10 @@
             this.UpdatePBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.UpdatePBox.TabIndex = 21;
             this.UpdatePBox.TabStop = false;
+            this.UpdatePBox.Click += new System.EventHandler(this.UpdatePBox_Click);
+            this.UpdatePBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UpdatePBox_MouseDown);
+            this.UpdatePBox.MouseLeave += new System.EventHandler(this.UpdatePBox_MouseLeave);
+            this.UpdatePBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UpdatePBox_MouseMove);
             // 
             // LTotalFixo
             // 
@@ -208,6 +240,8 @@
             this.LTotalFixo.Size = new System.Drawing.Size(33, 15);
             this.LTotalFixo.TabIndex = 19;
             this.LTotalFixo.Text = "Total";
+            this.LTotalFixo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
+            this.LTotalFixo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
             // 
             // LAquivoFixo
             // 
@@ -221,6 +255,8 @@
             this.LAquivoFixo.Size = new System.Drawing.Size(50, 15);
             this.LAquivoFixo.TabIndex = 18;
             this.LAquivoFixo.Text = "Arquivo";
+            this.LAquivoFixo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
+            this.LAquivoFixo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
             // 
             // LTitulo
             // 
@@ -233,6 +269,8 @@
             this.LTitulo.Size = new System.Drawing.Size(44, 18);
             this.LTitulo.TabIndex = 17;
             this.LTitulo.Text = "Titulo";
+            this.LTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
+            this.LTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
             // 
             // Total_BarFixo
             // 
@@ -268,6 +306,8 @@
             this.LArquivo.Text = "Arquivo...";
             this.LArquivo.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.LArquivo.Visible = false;
+            this.LArquivo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseDown);
+            this.LArquivo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Launcher_MouseMove);
             // 
             // WEB_Announce
             // 
