@@ -45,7 +45,6 @@ namespace PBLauncher
                 using (WebClient wc = new WebClient() { Encoding = Encoding.UTF8 })
                 using (var sr = new StringReader(wc.DownloadString(HostURL)))
                 {
-                    Dictionary<string, object> config = new Dictionary<string, object>();
                     string line;
                     while ((line = sr.ReadLine()) != null)
                     {
@@ -116,10 +115,10 @@ namespace PBLauncher
             try
             {
                 using (WebClient wc = new WebClient() { Encoding = Encoding.UTF8 })
+                using (var sr = new StringReader(wc.DownloadString(HostURL)))
                 {
-                    string[] all = wc.DownloadString(HostURL).Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-                    Dictionary<string, object> config = new Dictionary<string, object>();
-                    foreach (string line in all)
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
                     {
                         if (line.Contains("="))
                         {
