@@ -2,20 +2,16 @@
  * Criado por ForceFK
  * https://github.com/ForceFK
  * Force&Kuraio Dev
- * Última modificação: 11/08/2020
+ * Última modificação: 24/08/2020
  */
 using Core;
-using PBLauncher.Utils;
 using PBLauncher.Utils.Enum;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Net;
-using System.Net.NetworkInformation;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PBLauncher
 {
@@ -25,7 +21,7 @@ namespace PBLauncher
         /// URL of the configuration file hosted on the site
         /// URL do arquivo configuração hospedado no site
         /// </summary>
-        private static readonly string HostURL = "https://forum.projectelite.net/launcher/settings.conf";
+        private static readonly string HostURL = "http://localhost/launcher/settings.conf";
         public static string GameName = "Project Elite - Public";
 
 
@@ -47,10 +43,11 @@ namespace PBLauncher
             try
             {
                 using (WebClient wc = new WebClient() { Encoding = Encoding.UTF8 })
+                using (var sr = new StringReader(wc.DownloadString(HostURL)))
                 {
-                    string[] all = wc.DownloadString(HostURL).Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
                     Dictionary<string, object> config = new Dictionary<string, object>();
-                    foreach (string line in all)
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
                     {
                         if (line.Contains("="))
                         {
