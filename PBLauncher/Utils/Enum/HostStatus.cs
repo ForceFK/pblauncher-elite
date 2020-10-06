@@ -1,7 +1,7 @@
 ﻿/*
  * Criado por ForceFK
  * https://github.com/ForceFK
- * Force&Kuraio Dev
+ * Force&Kuraiyo Dev
  * Última modificação: 11/08/2020
  */
 
