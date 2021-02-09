@@ -169,7 +169,7 @@ namespace PBLauncher
            await  Clear.Trash();
             if (LVersion == -1)
             {
-                Logger.Log("[>!] Não tem atuaização disponível. [RECEIVE_COUNT_NULL]");
+                Logger.Log("[>!] Não tem atualização disponível. [RECEIVE_COUNT_NULL]");
                 MessageBox.Show(Config.GET_UPDATE_ERROR, "[RECEIVE_NULL] ~ " + Connect.GameName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             AVersion = LerVersion();
@@ -231,16 +231,17 @@ namespace PBLauncher
             LDownload.Text = string.Format("{0}/{1} MB", (e.BytesReceived / 1024.0 / 1024.0).ToString("0.00"), (e.TotalBytesToReceive / 1024.0 / 1024.0).ToString("0.00"));
         }
 
-        private void GameUpdate_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        private async void GameUpdate_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
             if (e.Error == null)
             {
                 LDownload.Visible = false;
                 LTitulo.Text = Config.EXTRACT_FILE_UPDATE;
+                LTitulo.Update();
                 Total_Bar.Width = 0;
                 string startupPath = Application.StartupPath;
                 object[] actualVersion = new object[] { Application.StartupPath, "\\_DownloadPatchFiles\\patch_", AVersion + 1, ".zip" };
-                Unzip(startupPath, string.Concat(actualVersion));
+                await Unzip(startupPath, string.Concat(actualVersion));
                 Total_Bar.Width = Total_BarFixo.Width;
                 StartUpdate();
             }
@@ -436,11 +437,11 @@ namespace PBLauncher
         #endregion
 
         #region Códigos base
-        public void Unzip(string TargetDir, string ZipToUnpack)
+        public async Task Unzip(string TargetDir, string ZipToUnpack)
         {
             try
             {
-                Arquivo_Bar.Width = 0;
+                int x = 0;
                 ZipFile zipFile = ZipFile.Read(ZipToUnpack);
                 try
                 {
@@ -448,6 +449,12 @@ namespace PBLauncher
                     LArquivo.Visible = true;
                     foreach (ZipEntry zipEntry in zipFile)
                     {
+                        Arquivo_Bar.Width = 0;
+                        Bar2SetProgress(x++, zipFile.Count);
+
+                        //Pausa necessaria para atualizar os elemtos visuais.
+                        await Task.Delay(1);
+
                         string fileName = zipEntry.FileName;
                         if (fileName.Contains("/"))
                         {
@@ -457,12 +464,8 @@ namespace PBLauncher
                         if (!zipEntry.IsDirectory)
                         {
                             LArquivo.Text = fileName;
-                            LArquivo.Update();
-                            Arquivo_Bar.Update();
                             zipEntry.Extract(TargetDir, ExtractExistingFileAction.OverwriteSilently);
                         }
-                        else
-                            Logger.Log("[ERROR EXTRACT]: " + zipEntry.FileName + " não existe.");
                     }
                 }
                 finally

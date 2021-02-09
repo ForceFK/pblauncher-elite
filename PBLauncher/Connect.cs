@@ -2,7 +2,7 @@
  * Criado por ForceFK
  * https://github.com/ForceFK
  * Force&Kuraio Dev
- * Última modificação: 24/08/2020
+ * Última modificação: 09/02/2021
  */
 using Core;
 using PBLauncher.Utils.Enum;
@@ -20,6 +20,7 @@ namespace PBLauncher
         /// <summary>
         /// URL of the configuration file hosted on the site
         /// URL do arquivo configuração hospedado no site
+        /// Recomendado: Arquivo de configuração estar com o encode em UTF-8
         /// </summary>
         private static readonly string HostURL = "http://localhost/launcher/settings.conf";
         public static string GameName = "Project Elite - Public";
